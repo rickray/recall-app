@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '@/theme/colors';
 import { GameHeader } from '@/components/GameHeader';
 import { StatusBanner, StatusVariant } from '@/components/StatusBanner';
+import { SummaryCard } from '@/components/SummaryCard';
 import { generateTrials } from '@/games/n-back/generate';
 import { scoreRound, calculateLiveScores } from '@/games/n-back/score';
 import {
@@ -399,51 +400,19 @@ export default function NBackScreen() {
 
         {/* Summary Card */}
         {summary && (
-          <View style={styles.summaryCard}>
-            <Text style={styles.summaryTitle}>Round Complete</Text>
-            <Text style={styles.summarySubtitle}>
-              Accuracy: {summary.accuracy}% (20 test trials)
-            </Text>
-
-            <View style={styles.summaryGrid}>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>Accuracy</Text>
-                <Text style={[styles.summaryItemVal, styles.purpleValue]}>
-                  {summary.accuracy}%
-                </Text>
-              </View>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>Hits</Text>
-                <Text style={[styles.summaryItemVal, styles.emeraldValue]}>
-                  {summary.hits}/{summary.totalTargets}
-                </Text>
-              </View>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>False Alarms</Text>
-                <Text style={[styles.summaryItemVal, styles.redValue]}>
-                  {summary.falseAlarms}
-                </Text>
-              </View>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>Correct Rejections</Text>
-                <Text style={styles.summaryItemVal}>
-                  {summary.correctRejections}/{summary.totalNonTargets}
-                </Text>
-              </View>
-            </View>
-
-            <Pressable
-              onPress={startRound}
-              style={({ pressed }) => [
-                styles.primaryButton,
-                pressed && styles.buttonPressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel="Play Again"
-            >
-              <Text style={styles.primaryButtonText}>Play Again</Text>
-            </Pressable>
-          </View>
+          <SummaryCard
+            title="Round Complete"
+            subtitle={`Accuracy: ${summary.accuracy}% (20 test trials)`}
+            stats={[
+              { label: 'Accuracy', value: `${summary.accuracy}%`, highlightColor: colors.purple },
+              { label: 'Hits', value: `${summary.hits}/${summary.totalTargets}`, highlightColor: colors.emerald },
+              { label: 'False Alarms', value: summary.falseAlarms, highlightColor: colors.red },
+              { label: 'Correct Rejections', value: `${summary.correctRejections}/${summary.totalNonTargets}` },
+            ]}
+            actionLabel="Play Again"
+            onAction={startRound}
+            actionColor={colors.purple}
+          />
         )}
 
         {/* Rules Card */}

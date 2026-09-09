@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '@/theme/colors';
 import { GameHeader } from '@/components/GameHeader';
 import { StatusBanner, StatusVariant } from '@/components/StatusBanner';
+import { SummaryCard } from '@/components/SummaryCard';
 import {
   generateTargetPattern,
   flashDuration,
@@ -293,35 +294,17 @@ export default function GridScreen() {
         )}
 
         {showSummary && (
-          <View style={styles.summaryCard}>
-            <Text style={styles.summaryTitle}>Round Ended</Text>
-            <Text style={styles.summarySubtitle}>
-              Here is your performance summary:
-            </Text>
-            <View style={styles.summaryGrid}>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>Cells Reached</Text>
-                <Text style={[styles.summaryItemVal, styles.amberValue]}>
-                  {currentLength}
-                </Text>
-              </View>
-              <View style={styles.summaryItem}>
-                <Text style={styles.summaryItemLabel}>Personal Best</Text>
-                <Text style={styles.summaryItemVal}>{bestLength}</Text>
-              </View>
-            </View>
-            <Pressable
-              onPress={startGame}
-              style={({ pressed }) => [
-                styles.primaryButton,
-                pressed && styles.buttonPressed,
-              ]}
-              accessibilityRole="button"
-              accessibilityLabel="Play Again"
-            >
-              <Text style={styles.primaryButtonText}>Play Again</Text>
-            </Pressable>
-          </View>
+          <SummaryCard
+            title="Round Ended"
+            subtitle="Here is your performance summary:"
+            stats={[
+              { label: 'Cells Reached', value: currentLength, highlightColor: colors.amber },
+              { label: 'Personal Best', value: bestLength },
+            ]}
+            actionLabel="Play Again"
+            onAction={startGame}
+            actionColor={colors.amber}
+          />
         )}
 
         {/* How It Works Card */}

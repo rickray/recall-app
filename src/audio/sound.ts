@@ -35,19 +35,19 @@ export function createSoundController(): SoundController {
     },
     async playKey() {
       if (!isEnabled) return;
-      // Soft-fail audio playback
+      // Audio playback is soft-fail / best-effort in v1 (plan-allowed)
     },
     async playSuccess() {
       if (!isEnabled) return;
-      // Soft-fail audio playback
+      // Audio playback is soft-fail / best-effort in v1 (plan-allowed)
     },
     async playError() {
       if (!isEnabled) return;
-      // Soft-fail audio playback
+      // Audio playback is soft-fail / best-effort in v1 (plan-allowed)
     },
     async playTone(_index: number, _seconds?: number) {
       if (!isEnabled) return;
-      // Soft-fail audio playback
+      // Audio playback is soft-fail / best-effort in v1 (plan-allowed)
     },
   };
 }
