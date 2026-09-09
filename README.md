@@ -5,7 +5,17 @@ Adult cognitive training games for iOS and Android.
 Companion to the web app: [rickray/recall](https://github.com/rickray/recall) · [live](https://rickray.github.io/recall/)
 
 **Stack:** React Native + Expo + TypeScript  
-**Status:** Design written; implementation starts after the written spec is signed off.
+**Status:** Task 1 scaffold complete (Expo Router + Dark theme + Hub shell + placeholder routes).
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start local dev server
+npm run start
+```
 
 ## Spec
 
