@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Recall",
+    "slug": "recall",
+    "version": "1.0.0",
+    "scheme": "recall",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "ios": {
+      "bundleIdentifier": "com.rickray.recall",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.rickray.recall"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
