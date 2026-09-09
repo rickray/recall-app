@@ -174,7 +174,7 @@ export default function EvenFactorsScreen() {
       setState(nextState);
       setInput('');
       setStatus({
-        message: 'Not quite — try again',
+        message: 'Not quite. Try again or tap Skip.',
         variant: 'error',
       });
     }
@@ -189,7 +189,7 @@ export default function EvenFactorsScreen() {
       return;
     }
 
-    sound.playKey();
+    sound.playError();
     const nextState = onWrongOrSkip(state);
     setState(nextState);
     setRevealedProduct(problem.product);

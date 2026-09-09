@@ -38,7 +38,7 @@ const GAMES: GameItem[] = [
     id: 'even-factors',
     title: 'Even Factors',
     tag: 'Mental Math',
-    tagline: 'Rapid mental multiplication where all factors end in even digits.',
+    tagline: 'Mental multiplication where factors end in even digits, with at least one single digit (2, 4, 6, 8).',
     href: '/even-factors',
   },
 ];
