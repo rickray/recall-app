@@ -48,7 +48,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="even-factors/index"
           options={{
-            title: 'Even Factors',
+            headerShown: false,
           }}
         />
       </Stack>

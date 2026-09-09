@@ -1,5 +1,6 @@
 import { EvenFactorsMode, EvenFactorsProblem } from './types';
 
+export { EvenFactorsMode, EvenFactorsProblem } from './types';
 export function isEvenEnding(n: number): boolean {
   return [0, 2, 4, 6, 8].includes(Math.abs(n) % 10);
 }
